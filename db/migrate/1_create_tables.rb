@@ -10,10 +10,6 @@ class CreateTables < ActiveRecord::Migration
 
     create_table :pins do |t|
       t.string :pinurl
-      t.timestamps
-    end
-
-    create_table :posts do |t|
       t.string :title
       t.text :description
       t.integer :likes
