@@ -1,0 +1,94 @@
+.form-container {
+  margin: 20px auto;
+  width: 343px; 
+  height: 464px; 
+  -webkit-border-radius: 8px/7px; 
+  -moz-border-radius: 8px/7px; 
+  border-radius: 8px/7px; 
+  background-color: #ebebeb; 
+  -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
+  border: solid 1px #cbc9c9;
+}
+
+h1 {
+  font-size: 32px;
+  font-weight: 300;
+  color: #4c4c4c;
+  text-align: center;
+  padding-top: 10px;
+  margin-bottom: 10px;
+}
+
+
+
+form {
+  margin: 0 30px;
+}
+
+input {
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin: 8px 8px 8px 8px;
+  width: 80%;
+
+}
+
+/*
+.gender {
+  margin-left: 30px;
+  margin-bottom: 30px;
+}
+*/
+
+
+input[type=radio] {
+  display: inline;
+  width: 10%;
+}
+
+label.radio {
+  overflow: visible;
+  display: inline-block;
+  position: relative;
+  margin-bottom: 15px;
+  text-align: center;
+
+}
+
+input[type=button], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+  text-align: center;
+  margin-left: 25px;
+
+}
+
+.custom-button {
+  display: inline-block;
+  color: #FFFFFF;
+  background-color: #8AC007;
+  padding: 0.7% 2.0%;
+  text-decoration: none;
+  margin-left: 0;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border: 1px solid #8AC007;
+  border-radius: 5px;
+  white-space: nowrap;
+}
+
+.custom-button:hover {
+  display: inline-block;
+  color: #8AC007;
+  background-color: #FFFFFF;
+  padding: 0.7% 2.0%;
+  text-decoration: none;
+  margin-left: 0;
+  margin-top: 0px;
+  margin-bottom: 5px;
+  border: 1px solid #8AC007;
+  border-radius: 5px;
+  white-space: nowrap;
+}

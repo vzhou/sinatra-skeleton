@@ -21,6 +21,13 @@ class CreateTables < ActiveRecord::Migration
       t.timestamps
     end  
 
+    create_table :boards do |t|
+      t.text :boardname
+      t.string :imgurl
+      t.references :parent_board
+      t.timestamps
+    end  
+
   end
 
 end

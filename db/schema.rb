@@ -13,6 +13,15 @@
 
 ActiveRecord::Schema.define(version: 2) do
 
+  create_table "boards", force: :cascade do |t|
+    t.text     "boardname"
+    t.string   "imgurl"
+    t.integer  "parent_board_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "comments", force: :cascade do |t|
     t.text     "comment"
     t.datetime "created_at"
@@ -29,6 +38,7 @@ ActiveRecord::Schema.define(version: 2) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "board_id"
   end
 
   create_table "users", force: :cascade do |t|
