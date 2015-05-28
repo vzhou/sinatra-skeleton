@@ -1,1 +1,25 @@
 <h1>Home Page</h1>
+  <% if current_user %>
+    <p>Hello, <%= @current_user.username %>!</p>
+    <p>You have <%= @current_user.pins.count %> pins.</p>
+    <% @pins=@current_user.pins.all %>
+      <div class="pins">
+        <div class="container">
+          <div class="pins row">
+            <% @pins.each do |p| %>
+                <div>
+                    <h2><a href=<%= p.pinurl %>><%= p.title %></a></h2>
+                    <p><%= p.description %></p>
+                    <img src=<%= p.pinurl %>>
+                    <p>likes: <%= p.likes %></p>
+
+                </div>
+              <% end %>
+          </div>
+        </div>
+      </div>
+
+
+  <%else %>
+    <h1><a href="/login">Please Login </a></h1>
+  <% end %>
