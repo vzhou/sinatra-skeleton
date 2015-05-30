@@ -1,5 +1,5 @@
   <div class="form-container">
-    <h1>Create New Pin</h1>
+    <h1>New Pin</h1>
 
     <form method="POST" action="/pins/create">
       <div class="form-group">
@@ -13,8 +13,12 @@
       <div class="form-group">
         <label for="Description"><span class="glyphicon glyphicon-paperclip"></span></label>
         <input type="textarea" name="description" placeholder="Description"><br>
-      </div>      
-      <input type="submit" value="Create New Pin" class="btn btn-default">
+      </div>   
+      <div class="form-group">
+        <label for="Pin_Img"><span class="glyphicon glyphicon glyphicon-picture"></span></label>
+        <input type="url" name="pinimg" placeholder="Image URL"><br>
+      </div>         
+      <input type="submit" value="Create" class="btn btn-default">
 
     </form>
   </div>

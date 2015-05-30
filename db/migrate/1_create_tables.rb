@@ -13,6 +13,7 @@ class CreateTables < ActiveRecord::Migration
       t.string :title
       t.text :description
       t.integer :likes
+      t.string :pinimg
       t.timestamps
     end
 

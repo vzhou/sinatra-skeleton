@@ -1,25 +1,93 @@
-<h1>Home Page</h1>
+<h1>Pinmarks</h1>
+
   <% if current_user %>
-    <p>Hello, <%= @current_user.username %>!</p>
-    <p>You have <%= @current_user.pins.count %> pins.</p>
+    <div class="container">
+      <div class="col-md-12 text-center">
+        <a href="/boards"><i class="glyphicon glyphicon-folder-open">-Boards-</i></a>
+        <a href="/profile"><i class="glyphicon glyphicon-cog">-Profile-</i></a>
+        <a href="/logout"><i class="glyphicon glyphicon-log-out">-Logout-</i></a>
+
+      </div>
+      <div class="col-md-12">
+        <hr>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <p>Hello, <%= @current_user.username %>!</p>
+      <p>You have <%= @current_user.pins.count %> pins.
+      <%if @current_user.pins.count == 0 %>
+        <a href='/pins/new'>Create a new pin</a> now.
+      <%end%>
+      </p>
+    </div>
+
     <% @pins=@current_user.pins.all %>
-      <div class="pins">
-        <div class="container">
-          <div class="pins row">
-            <% @pins.each do |p| %>
-                <div>
+    <div class="main">
+         <div class="container">
+           <% @pins.each do |p| %>
+            <% @comments=p.comments %>           
+                <div class="pin-container">
+                    <span class="glyphicon glyphicon-pushpin"></span>
+                    <div class="rating">
+                      <p class="likes"><span class="glyphicon glyphicon-heart-empty"></span><%= p.likes %></p>
+                    </div>
                     <h2><a href=<%= p.pinurl %>><%= p.title %></a></h2>
                     <p><%= p.description %></p>
-                    <img src=<%= p.pinurl %>>
-                    <p>likes: <%= p.likes %></p>
-
+                    <img class="img-responsive pin-img" src=<%= p.pinimg %>>
+                    <div class="container">
+                      <% @comments.each do |c| %>
+                        <p>- <%= c.comment %></p>
+                      <% end %>
+                    </div>
                 </div>
               <% end %>
-          </div>
-        </div>
-      </div>
+              <div class="pin-container">
+                  <span class="glyphicon glyphicon-pushpin"></span>
+                  <a href='/pins/new'><span class="glyphicon glyphicon-plus"></span></a>
+              </div>
 
+          </div>
+    </div>
 
   <%else %>
-    <h1><a href="/login">Please Login </a></h1>
+    <div class="container">
+      <div class="col-md-12 text-center">
+        <a href="/signup"><i class="glyphicon glyphicon-user">Signup</i></a>
+        <a href="/login"><i class="glyphicon glyphicon-home">Login</i></a>
+      </div>
+      <div class="col-md-12">
+        <hr>
+      </div>
+    </div>
+    <% @pins=Pin.all.order("likes DESC") %>
+    <div class="main">
+        <h1>Hot Pins</h1>
+         <div class="container">
+           <% @pins.each do |p| %>
+            <% @comments=p.comments %>           
+                <div class="pin-container">
+                    <span class="glyphicon glyphicon-pushpin"></span>
+                    <div class="rating">
+                      <p class="likes"><span class="glyphicon glyphicon-heart-empty"></span><%= p.likes %></p>
+                    </div>
+                    <h2><a href=<%= p.pinurl %>><%= p.title %></a></h2>
+                    <p><%= p.description %></p>
+                    <img class="img-responsive pin-img" src=<%= p.pinimg %>>
+                    <div class="container">
+                      <% @comments.each do |c| %>
+                        <p>- <%= c.comment %></p>
+                      <% end %>
+                    </div>
+                </div>
+              <% end %>
+              <div class="pin-container">
+                  <span class="glyphicon glyphicon-pushpin"></span>
+                  <a href='/pins/new'><span class="glyphicon glyphicon-plus"></span></a>
+              </div>
+
+          </div>
+    </div>
+
   <% end %>

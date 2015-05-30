@@ -35,6 +35,7 @@ ActiveRecord::Schema.define(version: 2) do
     t.string   "title"
     t.text     "description"
     t.integer  "likes"
+    t.string   "pinimg"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
