@@ -19,19 +19,11 @@
     <% @parent_boards=@boards.where(parent_board_id: nil) %>
     <ul id="primaryNav" class="col4">
         <% @parent_boards.each do |b| %>
-          <li><a href="#"> <%= b.boardname %></a>
+          <li><a href="#"> <%= b.boardname %> <br><%= b.pins.count %> pins. </a>
             <% @child_boards=@boards.where(parent_board_id: b) %>
             <ul>
               <% @child_boards.each do |c| %>
-                <li><a href="#"><%= c.boardname%></a>
-                  <ul>
-                    <% @board_pins = c.pins.all %>
-                    <% @board_pins.each do |p| %>
-                    <li>
-                      <a href="#"><%= p.title %></a>
-                    </li>
-                    <% end %>
-                  </ul>
+                <li><a href="#"><%= c.boardname%><br><%= c.pins.count %> pins. </a>
                 </li>
               <% end %>
             </ul>
