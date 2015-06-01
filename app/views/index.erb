@@ -29,12 +29,17 @@
             <% @comments=p.comments %>           
                 <div class="pin-container">
                     <span class="glyphicon glyphicon-pushpin"></span>
+
                     <div class="rating">
                       <p class="likes"><span class="glyphicon glyphicon-heart-empty"></span><%= p.likes %></p>
                     </div>
-                    <h2><a href=<%= p.pinurl %>><%= p.title %></a></h2>
+                    <h2><a href=<%= p.pinurl %>><%= p.title %></a>
+                    </h2>
                     <p><%= p.description %></p>
-                    <img class="img-responsive pin-img" src=<%= p.pinimg %>>
+                    <img class="img-responsive" src=<%= p.pinimg %>>
+                    <a href="/pins/<%= p[:id] %>">View | </a>
+                    <a href="/pins/<%= p[:id] %>/edit">Edit</a>
+
                     <div class="container">
                       <% @comments.each do |c| %>
                         <p>- <%= c.comment %></p>

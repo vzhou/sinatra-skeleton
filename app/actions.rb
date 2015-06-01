@@ -2,6 +2,9 @@ helpers do
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
+  def current_pin
+    @current_pin ||= Pin.find(params[:id]) 
+  end
 end
 
 # Homepage (Root path)
@@ -31,8 +34,32 @@ get '/logout' do
 end
 
 get '/pins/new' do
-    erb :new_pin
+  erb :new_pin
 end
+
+get '/pins/:id' do
+  @pin = Pin.find(params[:id])
+  erb :pin
+end
+
+get '/pins/:id/edit' do
+  @pin = Pin.find(params[:id])
+  erb :pin_edit
+end
+
+post '/pins/:id/update' do
+  @pin = Pin.find(params[:id])
+  pinurl = params[:pinurl]
+  title = params[:title]
+  description = params[:description]
+  pinimg = params[:pinimg]
+
+  pin = Pin.update(pinurl: pinurl, title: title, description: description, pinimg: pinimg, likes: 0, user_id: session[:user_id])
+  redirect '/'
+  
+
+end
+
 
 post '/login' do
   username = params[:username]

@@ -1,0 +1,29 @@
+<div class="form-container">
+  <div class="container">
+    
+    <form method="POST" action="/pins/:id/update">
+      <div class="form-group">
+        <label for="Title"><span class="glyphicon glyphicon-pushpin"></span></label>
+        <input type="text" name="title" placeholder="<%= @pin.title%>"><br>
+      </div>
+
+      <div class="form-group">
+        <label for="Pin_URL"><span class="glyphicon glyphicon glyphicon-globe"></span></label>
+        <input type="url" name="pinurl" placeholder="<%= @pin.pinurl%>"><br>
+      </div>
+
+      <div class="form-group">
+        <label for="Description"><span class="glyphicon glyphicon-paperclip"></span></label>
+        <input type="textarea" name="description" placeholder="<%= @pin.description%>"><br>
+      </div>   
+      <div class="form-group">
+        <label for="Pin_Img"><span class="glyphicon glyphicon glyphicon-picture"></span></label>
+        <input type="url" name="pinimg" placeholder="<%= @pin.pinimg%>"><br>
+      </div>         
+      <input type="submit" value="Update" class="btn btn-default">
+
+    </form>
+
+
+  </div>
+</div> 
