@@ -47,17 +47,29 @@ get '/pins/:id/edit' do
   erb :pin_edit
 end
 
-post '/pins/:id/update' do
+get '/pins/:id/comment/new' do
   @pin = Pin.find(params[:id])
-  pinurl = params[:pinurl]
-  title = params[:title]
-  description = params[:description]
-  pinimg = params[:pinimg]
+  erb :comment
+end
 
-  pin = Pin.update(pinurl: pinurl, title: title, description: description, pinimg: pinimg, likes: 0, user_id: session[:user_id])
+get '/pins/:id/addlike' do
+  @pin = Pin.find(params[:id])
+  likes = @pin.likes + 1
+  @pin.update(likes: likes)
+  redirect '/'
+end
+
+post '/pins/:id/comment/new' do
+  Comment.create!(comment: params[:comment], pin_id: params[:id], user_id: session[:user_id])
   redirect '/'
   
+end
 
+post '/pins/:id/edit' do
+  @pin = Pin.find(params[:id])
+  @pin.update(pinurl: params[:pinurl], title: params[:title], description: params[:description], pinimg: params[:pinimg])
+  redirect '/'
+  
 end
 
 
@@ -87,7 +99,7 @@ post '/signup' do
   if user
     redirect '/signup'
   else
-    user = User.create(username: username, email: email, password: password)
+    user = User.create!(username: username, email: email, password: password)
     session[:user_id] = user.id
     redirect '/'
   end
@@ -100,7 +112,7 @@ post '/profile/edit' do
 
   user = User.find_by(email: email)
   if user
-    user = User.update(username: username, email: email, password: password)
+    user = User.update!(username: username, email: email, password: password)
     session[:user_id] = user.id
     redirect '/'
   else
@@ -118,7 +130,7 @@ post '/pins/create' do
   if pin
     redirect '/'
   else
-    pin = Pin.create(pinurl: pinurl, title: title, description: description, pinimg: pinimg, likes: 0, user_id: session[:user_id])
+    pin = Pin.create!(pinurl: pinurl, title: title, description: description, pinimg: pinimg, likes: 0, user_id: session[:user_id])
     redirect '/'
   end
   
@@ -133,7 +145,7 @@ post '/boards/create' do
   if board
     redirect '/boards'
   else
-    board = Board.create(imgurl: imgurl, boardname: boardname, user_id: session[:user_id])
+    board = Board.create!(imgurl: imgurl, boardname: boardname, user_id: session[:user_id])
     redirect '/boards'
   end
   

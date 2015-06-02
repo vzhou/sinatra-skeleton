@@ -1,0 +1,18 @@
+<div class="form-container">
+  <div class="container">
+    <h3>New Comment for: </h3>
+    <p><%= @pin.title %></p>
+    <form method="POST" action="/pins/<%= @pin[:id] %>/comment/new">
+      <div class="form-group">
+        <label for="Comment"><span class="glyphicon glyphicon-text-size"></span></label>
+        <input type="textarea" name="comment" placeholder="Enter Comment"><br>
+      </div>           
+      <input type="submit" value="Create" class="btn btn-default">
+
+    </form>
+
+
+  </div>
+</div> 
+
+

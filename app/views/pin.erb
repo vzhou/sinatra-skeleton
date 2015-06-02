@@ -1,19 +1,18 @@
-<div class="form-container">
-  <% @comments=@pin.comments %>           
-<!--       <div class="pin-container">
- -->          <span class="glyphicon glyphicon-pushpin"></span>
+  <div class="form-container">
+    <% @comments=@pin.comments %>           
+           <span class="glyphicon glyphicon-pushpin"></span>
 
-          <div class="rating">
-            <p class="likes"><span class="glyphicon glyphicon-heart-empty"></span><%= @pin.likes %></p>
-          </div>
-          <h2><a href=<%= @pin.pinurl %>><%= @pin.title %></a>
-          </h2>
-          <p><%= @pin.description %></p>
-          <img class="img-responsive pin-img" src=<%= @pin.pinimg %>>
-          <div class="container">
-            <% @comments.each do |c| %>
-              <p>- <%= c.comment %></p>
-            <% end %>
-          </div>
-<!--       </div>
- --></div>
+            <div class="rating">
+              <p class="likes"><span class="glyphicon glyphicon-heart-empty"></span><%= @pin.likes %></p>
+            </div>
+            <h2><a href=<%= @pin.pinurl %>><%= @pin.title %></a>
+            </h2>
+            <p><%= @pin.description %></p>
+            <img class="img-responsive pin-img" src=<%= @pin.pinimg %>>
+            <div class="container">
+              <% @comments.each do |c| %>
+                <p>- <%= c.comment %></p>
+              <% end %>
+            </div>
+
+   </div>

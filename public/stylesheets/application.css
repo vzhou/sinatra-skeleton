@@ -5,11 +5,17 @@
     height: 100%;
     background-size: cover;
     overflow: hidden;
+    clear: both;
 
+}
+
+.pin-container p, .form-container p {
+  font-size: 14px;
 }
 
 .form-container {
   margin: 20px auto;
+  padding: 10px;
   width: 343px; 
   height: 464px; 
   -webkit-border-radius: 8px/7px; 
@@ -26,22 +32,23 @@
 .pin-container {
   margin: 20px auto;
   padding: 10px;
-  width: 343px; 
+  min-width: 100px; 
+  width: 33%;
   height: 464px; 
   -webkit-border-radius: 8px/7px; 
   -moz-border-radius: 8px/7px; 
   border-radius: 8px/7px; 
   background-color: #ebebeb; 
-  opacity:0.7;
+  opacity:0.8;
   -webkit-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
   -moz-box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
   box-shadow: 1px 2px 5px rgba(0,0,0,.31); 
   border: solid 1px #cbc9c9;
-  display: inline-block;
+  float: left;
 }
 
-.pin-img {
-  text-align: center;
+.pin-container img {
+  align: middle;
   max-height: 50%;
 }
 
