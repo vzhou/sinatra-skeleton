@@ -28,10 +28,14 @@
           <% boardname = nil %>
         <% end %>
         <label for="Board"><span class="glyphicon glyphicon glyphicon-folder-open"></span></label>
-        <select class="form-control" type="integer" name="board_id" value="<%= board.id%>">
+        <select class="form-control" type="integer" name="board_id">
           <% boards = Board.all %>
           <% boards.each do |b| %>
-            <option value="<%=b.id%>"><%= b.boardname%></option>
+            <% if boardname == b.boardname %>
+              <option value="<%=b.id%>" selected="selected"><%= b.boardname%></option>
+            <% else %>
+              <option value="<%=b.id%>"><%= b.boardname%></option>
+            <% end %>
           <% end %>
         </select>
       </div> 
