@@ -67,7 +67,7 @@ end
 
 post '/pins/:id/edit' do
   @pin = Pin.find(params[:id])
-  @pin.update(pinurl: params[:pinurl], title: params[:title], description: params[:description], pinimg: params[:pinimg])
+  @pin.update(pinurl: params[:pinurl], title: params[:title], description: params[:description], pinimg: params[:pinimg], board_id: params[:board_id])
   redirect '/'
   
 end

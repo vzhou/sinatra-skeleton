@@ -20,6 +20,22 @@
         <label for="Pin_Img"><span class="glyphicon glyphicon glyphicon-picture"></span></label>
         <input type="url" name="pinimg" value="<%= @pin.pinimg%>" placeholder="<%= @pin.pinimg%>"><br>
       </div>         
+      <div class="form-group">
+        <% if @pin.board_id!= nil%> 
+          <% board = Board.find(@pin.board_id) %>
+          <% boardname = board.boardname %>
+        <% else %>
+          <% boardname = nil %>
+        <% end %>
+        <label for="Board"><span class="glyphicon glyphicon glyphicon-folder-open"></span></label>
+        <select class="form-control" type="integer" name="board_id" value="<%= board.id%>">
+          <% boards = Board.all %>
+          <% boards.each do |b| %>
+            <option value="<%=b.id%>"><%= b.boardname%></option>
+          <% end %>
+        </select>
+      </div> 
+
       <input type="submit" value="Update" class="btn btn-default">
 
     </form>
